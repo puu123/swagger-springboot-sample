@@ -3,6 +3,7 @@ package springboot.example.com.api;
 import java.util.Collections;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -11,15 +12,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import io.swagger.annotations.ApiParam;
-import io.swagger.api.BooksApi;
 import io.swagger.model.Book;
 import lombok.val;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-public class BooksApiController implements BooksApi {
+public class BooksApiController extends io.swagger.api.BooksApiController {
+
+    public BooksApiController(ObjectMapper objectMapper, HttpServletRequest request) {
+        super(objectMapper, request);
+    }
 
     public ResponseEntity<Void> createBook(
             @ApiParam(value = "Created book object", required = true) @Valid @RequestBody Book book) {
