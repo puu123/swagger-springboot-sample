@@ -83,16 +83,25 @@ $ java -jar build/libs/swagger-springboot-sample.jar
 $ gradle bootRun
 ```
 
+### ping
+
+```bash
+$ curl -s -v -X GET localhost:8080/ping | jq .
+{
+  "message": "pong"
+}
+```
+
 ### list
 
 ```bash
-$ curl -s -v -X GET -H 'Content-Type: application/json' localhost:8080/users/list | jq .
+$ curl -s -v -X GET -H 'Auth-Token: secret' localhost:8080/users/list | jq .
 ```
 
 ### create
 
 ```bash
-$ curl -s -v -X POST -H 'Content-Type: application/json' localhost:8080/users/create -d '{"id": 4, "username": "sala", "phone": "000-123-456"}' | jq .
+$ curl -s -v -X POST -H 'Auth-Token: passwd' -H 'Content-Type: application/json' localhost:8080/users/create -d '{"id": 4, "username": "sala", "phone": "000-123-456"}' | jq .
 {
   "id": 4
 }
@@ -101,7 +110,7 @@ $ curl -s -v -X POST -H 'Content-Type: application/json' localhost:8080/users/cr
 ### retrieve
 
 ```bash
-$ curl -s -v -X GET -H 'Content-Type: application/json' localhost:8080/users/4 | jq .
+$ curl -s -v -X GET -H 'Auth-Token: passwd' localhost:8080/users/4 | jq .
 {
   "id": 4,
   "username": "sala",
@@ -118,13 +127,14 @@ $ curl -s -v -X GET -H 'Content-Type: application/json' localhost:8080/users/4 |
 ### update
 
 ```bash
-$ curl -s -v -X PUT -H 'Content-Type: application/json' localhost:8080/users/4 -d '{"firstName": "sala", "lastName": "smith"}' | jq .
+$ curl -s -v -X PUT -H 'Auth-Token: passwd' -H 'Content-Type: application/json' localhost:8080/users/4 -d '{"firstName": "sala", "lastName": "smith"}' | jq .
 < HTTP/1.1 200 OK
-$ curl -s -v -X GET -H 'Content-Type: application/json' localhost:8080/users/4 | jq .
+$ curl -s -v -X GET -H 'Auth-Token: passwd' localhost:8080/users/4 | jq .
 {
   "id": 4,
   "username": null,
-  "firstName": "sala",
+.
+150 < HTTP/1.1 200 OK  "firstName": "sala",
   "lastName": "smith",
   "birthday": null,
   "email": null,
@@ -137,9 +147,9 @@ $ curl -s -v -X GET -H 'Content-Type: application/json' localhost:8080/users/4 |
 ### delete
 
 ```bash
-$ curl -s -v -X DELETE -H 'Content-Type: application/json' localhost:8080/users/4 | jq .
+$ curl -s -v -X DELETE -H 'Auth-Token: passwd' localhost:8080/users/4 | jq .
 < HTTP/1.1 200 OK
-$ curl -s -v -X GET -H 'Content-Type: application/json' localhost:8080/users/4 | jq .
+$ curl -s -v -X GET -H 'Auth-Token: passwd' localhost:8080/users/4 | jq .
 < HTTP/1.1 404 Not Found
 ```
 
