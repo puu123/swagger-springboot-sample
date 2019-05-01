@@ -38,6 +38,8 @@ build/swagger-code-openapi/
     │   │           │   ├── BooksApi.java
     │   │           │   ├── BooksApiController.java
     │   │           │   ├── NotFoundException.java
+    │   │           │   ├── PingApi.java
+    │   │           │   ├── PingApiController.java
     │   │           │   ├── UsersApi.java
     │   │           │   └── UsersApiController.java
     │   │           ├── configuration
@@ -47,6 +49,7 @@ build/swagger-code-openapi/
     │   │           │   └── SwaggerDocumentationConfig.java
     │   │           └── model
     │   │               ├── Book.java
+    │   │               ├── InlineResponse200.java
     │   │               ├── InlineResponse201.java
     │   │               └── User.java
     │   └── resources
@@ -57,9 +60,10 @@ build/swagger-code-openapi/
                 └── swagger
                     └── api
                         ├── BooksApiControllerIntegrationTest.java
+                        ├── PingApiControllerIntegrationTest.java
                         └── UsersApiControllerIntegrationTest.java
 
-14 directories, 22 files
+14 directories, 26 files
 ```
 
 ## How to boot
