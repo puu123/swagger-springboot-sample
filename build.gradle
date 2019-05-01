@@ -33,6 +33,7 @@ dependencies {
 
     // spring boot with jetty
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-jetty', version: '2.1.4.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.1.4.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.4.RELEASE'
 
     // swagger codegen v3

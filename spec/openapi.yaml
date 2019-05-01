@@ -14,6 +14,8 @@ tags:
     url: http://swagger.io
 - name: books
   description: Operations about book
+- name: ping
+  description: returns pong response without auth
 paths:
   /users/list:
     get:
@@ -189,6 +191,19 @@ paths:
         404:
           description: User not found
           content: {}
+  /ping:
+    get:
+      description: Returns a list of users
+      operationId: getPing
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
 components:
   schemas:
     User:
