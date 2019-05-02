@@ -1,4 +1,4 @@
-package springboot.example.com.security;
+package com.example.springboot.security;
 
 import javax.servlet.Filter;
 

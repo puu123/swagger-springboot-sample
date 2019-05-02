@@ -60,7 +60,7 @@ sourceSets.main.resources.srcDir "${swaggerSources.openapi.code.outputDir}/src/m
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-mainClassName = 'springboot.example.com.ServerMain'
+mainClassName = 'com.example.springboot.ServerMain'
 
 // for debugging
 tasks.withType(JavaExec) {

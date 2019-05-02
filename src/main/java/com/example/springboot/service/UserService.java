@@ -1,4 +1,4 @@
-package springboot.example.com.service;
+package com.example.springboot.service;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

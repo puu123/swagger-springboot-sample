@@ -1,4 +1,4 @@
-package springboot.example.com.api;
+package com.example.springboot.api;
 
 import java.util.Collections;
 import java.util.List;

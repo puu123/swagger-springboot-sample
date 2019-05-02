@@ -1,4 +1,4 @@
-package springboot.example.com.api;
+package com.example.springboot.api;
 
 import javax.servlet.http.HttpServletRequest;
 

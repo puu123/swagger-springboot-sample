@@ -1,4 +1,4 @@
-package springboot.example.com.api;
+package com.example.springboot.api;
 
 import java.util.List;
 
@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.springboot.service.UserService;
+
 import io.swagger.api.UsersApi;
 import io.swagger.model.InlineResponse201;
 import io.swagger.model.User;
 import lombok.val;
 import lombok.var;
 import lombok.extern.slf4j.Slf4j;
-import springboot.example.com.service.UserService;
 
 @Slf4j
 @RestController

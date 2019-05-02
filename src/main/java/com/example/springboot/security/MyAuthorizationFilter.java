@@ -1,4 +1,4 @@
-package springboot.example.com.security;
+package com.example.springboot.security;
 
 import java.io.IOException;
 import java.util.Optional;
