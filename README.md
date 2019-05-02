@@ -2,6 +2,7 @@
 
 microserver with springboot by generating swagger-codegen sample
 
+* see also [openapi-generator sample](https://github.com/t2y/openapi-springboot-sample)
 
 ## How to build
 
