@@ -125,8 +125,6 @@ $ curl -s -v -X GET -H 'Auth-Token: passwd' localhost:8080/users/4 | jq .
 {
   "id": 4,
   "username": null,
-.
-150 < HTTP/1.1 200 OK  "firstName": "sala",
   "lastName": "smith",
   "birthday": null,
   "email": null,
