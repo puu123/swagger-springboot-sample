@@ -3,7 +3,6 @@ package com.example.springboot.api;
 import java.util.Collections;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -12,27 +11,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import io.swagger.annotations.ApiParam;
+import io.swagger.api.BooksApi;
 import io.swagger.model.Book;
 import lombok.val;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-public class BooksApiController extends io.swagger.api.BooksApiController {
+public class BooksApiController implements BooksApi {
 
-    public BooksApiController(ObjectMapper objectMapper, HttpServletRequest request) {
-        super(objectMapper, request);
-    }
-
+    @Override
     public ResponseEntity<Void> createBook(
             @ApiParam(value = "Created book object", required = true) @Valid @RequestBody Book book) {
         log.info("called createdBook: " + book.toString());
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
+    @Override
     public ResponseEntity<Book> getBookById(
             @ApiParam(value = "The id that needs to be fetched. Use 1 for testing. ", required = true) @PathVariable("id") Integer id) {
         log.info("called getBookById: " + String.valueOf(id));
@@ -40,6 +36,7 @@ public class BooksApiController extends io.swagger.api.BooksApiController {
         return new ResponseEntity<Book>(book, HttpStatus.OK);
     }
 
+    @Override
     public ResponseEntity<List<Book>> getBooks() {
         log.info("called : getBooks");
         List<Book> books = Collections.emptyList();

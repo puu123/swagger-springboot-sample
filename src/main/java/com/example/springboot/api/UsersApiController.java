@@ -8,12 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.springboot.service.UserService;
 
+import io.swagger.annotations.ApiParam;
 import io.swagger.api.UsersApi;
 import io.swagger.model.InlineResponse201;
 import io.swagger.model.User;
@@ -29,7 +30,6 @@ public class UsersApiController implements UsersApi {
     private UserService userService;
 
     @Override
-    @RequestMapping(value = "/users/list", produces = { "application/json" }, method = RequestMethod.GET)
     public ResponseEntity<List<User>> getUsers() {
         val auth = SecurityContextHolder.getContext().getAuthentication();
         log.info(auth.getAuthorities().toString());
@@ -38,9 +38,8 @@ public class UsersApiController implements UsersApi {
     }
 
     @Override
-    @RequestMapping(value = "/users/create", produces = { "application/json" }, consumes = {
-            "application/json" }, method = RequestMethod.POST)
-    public ResponseEntity<InlineResponse201> createUser(@Valid User user) {
+    public ResponseEntity<InlineResponse201> createUser(
+            @ApiParam(value = "Created user object", required = true) @Valid @RequestBody User user) {
         var statusCode = HttpStatus.CREATED;
         val result = this.userService.addUser(user);
         if (!result) {
@@ -51,8 +50,8 @@ public class UsersApiController implements UsersApi {
     }
 
     @Override
-    @RequestMapping(value = "/users/{id}", produces = { "application/json" }, method = RequestMethod.GET)
-    public ResponseEntity<User> getUserById(Long id) {
+    public ResponseEntity<User> getUserById(
+            @ApiParam(value = "The id that needs to be fetched. Use 1 for testing. ", required = true) @PathVariable("id") Long id) {
         var statusCode = HttpStatus.OK;
         val user = this.userService.getUser(id);
         if (user == null) {
@@ -62,15 +61,16 @@ public class UsersApiController implements UsersApi {
     }
 
     @Override
-    @RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Void> deleteUser(Long id) {
+    public ResponseEntity<Void> deleteUser(
+            @ApiParam(value = "The name that needs to be deleted", required = true) @PathVariable("id") Long id) {
         this.userService.deleteUser(id);
         return null;
     }
 
     @Override
-    @RequestMapping(value = "/users/{id}", consumes = { "application/json" }, method = RequestMethod.PUT)
-    public ResponseEntity<Void> updateUser(@Valid User user, Long id) {
+    public ResponseEntity<Void> updateUser(
+            @ApiParam(value = "Updated user object", required = true) @Valid @RequestBody User user,
+            @ApiParam(value = "name that need to be updated", required = true) @PathVariable("id") Long id) {
         user.setId(id);
         this.userService.updateUser(id, user);
         return null;

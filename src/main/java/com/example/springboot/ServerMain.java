@@ -16,8 +16,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @EnableGlobalMethodSecurity(securedEnabled = true)
 @ComponentScan(basePackages = {
-        "springboot.example.com",
-        "springboot.example.com.api",
+        "com.example.springboot",
+        "com.example.springboot.api",
 })
 public class ServerMain implements CommandLineRunner {
 

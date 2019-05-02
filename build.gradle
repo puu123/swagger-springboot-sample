@@ -48,6 +48,7 @@ swaggerSources {
         inputFile = file('spec/openapi.yaml')
         code {
             language = 'spring'
+            configFile = file('spec/config.json')
             // dependsOn validation
         }
     }

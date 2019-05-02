@@ -26,34 +26,21 @@ build/swagger-code-openapi/
 ├── pom.xml
 └── src
     ├── main
-    │   ├── java
-    │   │   └── io
-    │   │       └── swagger
-    │   │           ├── RFC3339DateFormat.java
-    │   │           ├── Swagger2SpringBoot.java
-    │   │           ├── api
-    │   │           │   ├── ApiException.java
-    │   │           │   ├── ApiOriginFilter.java
-    │   │           │   ├── ApiResponseMessage.java
-    │   │           │   ├── BooksApi.java
-    │   │           │   ├── BooksApiController.java
-    │   │           │   ├── NotFoundException.java
-    │   │           │   ├── PingApi.java
-    │   │           │   ├── PingApiController.java
-    │   │           │   ├── UsersApi.java
-    │   │           │   └── UsersApiController.java
-    │   │           ├── configuration
-    │   │           │   ├── CustomInstantDeserializer.java
-    │   │           │   ├── HomeController.java
-    │   │           │   ├── JacksonConfiguration.java
-    │   │           │   └── SwaggerDocumentationConfig.java
-    │   │           └── model
-    │   │               ├── Book.java
-    │   │               ├── InlineResponse200.java
-    │   │               ├── InlineResponse201.java
-    │   │               └── User.java
-    │   └── resources
-    │       └── application.properties
+    │   └── java
+    │       └── io
+    │           └── swagger
+    │               ├── api
+    │               │   ├── BooksApi.java
+    │               │   ├── PingApi.java
+    │               │   └── UsersApi.java
+    │               ├── configuration
+    │               │   ├── CustomInstantDeserializer.java
+    │               │   └── JacksonConfiguration.java
+    │               └── model
+    │                   ├── Book.java
+    │                   ├── InlineResponse200.java
+    │                   ├── InlineResponse201.java
+    │                   └── User.java
     └── test
         └── java
             └── io
@@ -63,7 +50,7 @@ build/swagger-code-openapi/
                         ├── PingApiControllerIntegrationTest.java
                         └── UsersApiControllerIntegrationTest.java
 
-14 directories, 26 files
+13 directories, 14 files
 ```
 
 ## How to boot
