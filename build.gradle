@@ -1,5 +1,5 @@
 plugins {
-    id "org.springframework.boot" version "2.1.4.RELEASE"
+    id "org.springframework.boot" version "2.2.1.RELEASE"
     id 'application'
     id 'java'
     id 'org.hidetake.swagger.generator' version '2.18.1'
@@ -15,10 +15,10 @@ configurations {
 
 dependencies {
     // for type inference
-    annotationProcessor 'org.projectlombok:lombok:1.18.6'
-    compileOnly 'org.projectlombok:lombok:1.18.6'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.6'
-    testCompileOnly 'org.projectlombok:lombok:1.18.6'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.8'
+    testCompileOnly 'org.projectlombok:lombok:1.18.8'
 
     // for logging
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
@@ -32,12 +32,12 @@ dependencies {
     compile group: 'org.threeten', name: 'threetenbp', version: '1.3.8'
 
     // spring boot with jetty
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jetty', version: '2.1.4.RELEASE'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.1.4.RELEASE'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.4.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jetty', version: '2.2.1.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.2.1.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.1.RELEASE'
 
     // swagger codegen v3
-    swaggerCodegen 'io.swagger.codegen.v3:swagger-codegen-cli:3.0.8'
+    swaggerCodegen 'io.swagger.codegen.v3:swagger-codegen-cli:3.0.13'
 
     implementation 'com.google.guava:guava:27.0.1-jre'
     testImplementation 'junit:junit:4.12'
